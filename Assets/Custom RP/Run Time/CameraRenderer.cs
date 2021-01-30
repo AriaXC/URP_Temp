@@ -28,6 +28,7 @@ public class CameraRenderer
             return;
         }
 
+
         Setup();
         DrawVisibleGeometry();
         Submit();
