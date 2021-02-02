@@ -28,15 +28,15 @@ public class CameraRenderer
             return;
         }
 
-
         Setup();
         DrawVisibleGeometry();
         Submit();
     }
 
     //绘制一个简单的东西
-    void DrawVisibleGeometry()
+    void DrawVisibleGeometry( )
     {
+        context.DrawSkybox(camera);
         SortingSettings sortSetting = new SortingSettings(camera) {
             criteria = SortingCriteria.CommonOpaque
         };
@@ -44,7 +44,7 @@ public class CameraRenderer
         FilteringSettings filterSetting = new FilteringSettings(RenderQueueRange.all);
 
         context.DrawRenderers(cullingResults, ref drawSetting, ref filterSetting);
-        context.DrawSkybox(camera);
+       
     }
 
     //提交这个队列  不然是没有效果 只是缓冲

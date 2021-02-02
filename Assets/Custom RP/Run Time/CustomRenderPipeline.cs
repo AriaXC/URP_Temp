@@ -15,7 +15,6 @@ public class CustomRenderPipeline : RenderPipeline
     {
         foreach (var item in cameras)
         {
-
             cameraRender.Render(context, item);
         }
     }
