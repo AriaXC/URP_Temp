@@ -2,8 +2,10 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Rendering;
+using UnityEditor;
 
-public class CameraRenderer 
+
+public partial class CameraRenderer 
 {
     ScriptableRenderContext context;
 
@@ -22,7 +24,10 @@ public class CameraRenderer
     {
         this.context = context;
         this.camera = camera;
-
+#if UNITY_EDITOR
+        CameraBuffer();
+        ShowSceneWindow();
+#endif
         if (!Cull())
         {
             return;
@@ -30,22 +35,38 @@ public class CameraRenderer
 
         Setup();
         DrawVisibleGeometry();
+#if UNITY_EDITOR
+        DrawUnsupportedShader();
+        DrawGizmos();
+#endif
         Submit();
+
     }
 
     //绘制一个简单的东西
     void DrawVisibleGeometry( )
     {
-        context.DrawSkybox(camera);
+     
         SortingSettings sortSetting = new SortingSettings(camera) {
             criteria = SortingCriteria.CommonOpaque
         };
         DrawingSettings drawSetting = new DrawingSettings(unlitShader, sortSetting);
-        FilteringSettings filterSetting = new FilteringSettings(RenderQueueRange.all);
+        FilteringSettings filterSetting = new FilteringSettings(RenderQueueRange.opaque);
 
         context.DrawRenderers(cullingResults, ref drawSetting, ref filterSetting);
-       
+
+        context.DrawSkybox(camera);
+
+        sortSetting.criteria = SortingCriteria.CommonTransparent;
+        drawSetting.sortingSettings = sortSetting;
+        filterSetting.renderQueueRange = RenderQueueRange.transparent;
+
+        context.DrawRenderers(cullingResults,ref drawSetting ,ref filterSetting);
+
     }
+  
+
+
 
     //提交这个队列  不然是没有效果 只是缓冲
     void Submit()
