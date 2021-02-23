@@ -69,7 +69,11 @@
     <Compile Include="Assets\Custom RP\Run Time\CustomRenderPipelineAssets.cs" />
     <Compile Include="Assets\Scripts\myGrid\myGrid.cs" />
     <None Include="Assets\Res\Shader\Unlit.shader" />
+    <None Include="Assets\Custom RP\Shader\UnlitPass.hlsl" />
+    <None Include="Assets\Custom RP\ShaderLabrary\UnityInput.hlsl" />
+    <None Include="Assets\Custom RP\Shader\Unlit.shader" />
     <None Include="Assets\Scripts\Shader\uuii.shader" />
+    <None Include="Assets\Custom RP\ShaderLabrary\Common.hlsl" />
     <Reference Include="UnityEngine">
       <HintPath>/Applications/Unity/Hub/Editor/2019.4.18f1c1/Unity.app/Contents/Managed/UnityEngine/UnityEngine.dll</HintPath>
     </Reference>

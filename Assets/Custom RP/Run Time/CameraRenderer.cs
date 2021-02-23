@@ -64,10 +64,6 @@ public partial class CameraRenderer
         context.DrawRenderers(cullingResults,ref drawSetting ,ref filterSetting);
 
     }
-  
-
-
-
     //提交这个队列  不然是没有效果 只是缓冲
     void Submit()
     {
@@ -91,8 +87,6 @@ public partial class CameraRenderer
         context.ExecuteCommandBuffer(Cbuffer);
         Cbuffer.Clear();
     }
-
- 
     //剔除
     bool Cull()
     {
@@ -104,8 +98,4 @@ public partial class CameraRenderer
         }
         return false;
     }
-
-
-
-
 }
