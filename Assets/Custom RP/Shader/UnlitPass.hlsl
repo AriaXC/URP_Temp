@@ -3,18 +3,21 @@
 
 #include "../ShaderLabrary/Common.hlsl"
 
+
+float4 _BaseColor;
 float4 vert(float3 positionOS : POSITION):SV_POSITION
 {
-//    return float4(positionOS,1.0);
+  // return float4(positionOS,1.0);
 
     float3 pos =  TransformObjectToWorld(positionOS.xyz);
-    return TransformWorldToClip(pos);
+   return TransformWorldToHClip(pos);
 
     //return float4(pos,1.0);
 }
 float4 frag():SV_TARGET
 {
-   return float4(1.0,1.0,0.0,1.0);
+    return _BaseColor;
+  // return float4(1.0,1.0,0.0,1.0);
 }
 
 #endif

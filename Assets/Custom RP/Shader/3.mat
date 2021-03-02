@@ -7,7 +7,7 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: 1
+  m_Name: 3
   m_Shader: {fileID: 4800000, guid: 4487a476287f34064ae5988dab560dfa, type: 3}
   m_ShaderKeywords: 
   m_LightmapFlags: 0
@@ -96,7 +96,7 @@ Material:
     - _UseUIAlphaClip: 0
     - _ZWrite: 1
     m_Colors:
-    - _BaseColor: {r: 0.24554864, g: 0.14653791, b: 0.8396226, a: 1}
+    - _BaseColor: {r: 0.3335818, g: 0.8867924, b: 0.15477037, a: 1}
     - _CameraFadeParams: {r: 0, g: Infinity, b: 0, a: 0}
     - _Color: {r: 0.7264151, g: 0.18160377, b: 0.18160377, a: 1}
     - _ColorAddSubDiff: {r: 0, g: 0, b: 0, a: 0}
