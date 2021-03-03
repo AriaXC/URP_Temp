@@ -3,8 +3,12 @@
 
 #include "../ShaderLabrary/Common.hlsl"
 
+//缓冲区
 
-float4 _BaseColor;
+CBUFFER_START(UnityPerMaterial) 
+    float4 _BaseColor;
+CBUFFER_END
+
 float4 vert(float3 positionOS : POSITION):SV_POSITION
 {
   // return float4(positionOS,1.0);

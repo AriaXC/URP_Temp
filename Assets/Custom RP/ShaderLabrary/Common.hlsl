@@ -3,12 +3,18 @@
 
 #include "UnityInput.hlsl"
 #include "Packages/com.unity.render-pipelines.core/ShaderLibrary/Common.hlsl"
-float4x4 unity_ObjectToWorld;
-float4x4 unity_WorldToObject;
-float4x4 unity_MatrixV;
-float4x4 glstate_matrix_projection;
-float4x4 unity_MatrixVP;
-half4 unity_WorldTransformParams;
+
+CBUFFER_START(UnityPerDraw) 
+    float4x4 unity_ObjectToWorld;
+    float4x4 unity_WorldToObject;
+  
+    half4 unity_WorldTransformParams;
+    float4 unity_LODFade;
+CBUFFER_END
+
+    float4x4 unity_MatrixV;
+    float4x4 glstate_matrix_projection;
+    float4x4 unity_MatrixVP;
 
 //float3 TransformObjectToWorld(float3 positionOS)
 //{

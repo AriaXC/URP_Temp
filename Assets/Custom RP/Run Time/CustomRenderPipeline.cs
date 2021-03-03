@@ -8,6 +8,11 @@ using UnityEngine.Rendering;
 public class CustomRenderPipeline : RenderPipeline
 {
     CameraRenderer cameraRender = new CameraRenderer();
+    //启动srp
+    public CustomRenderPipeline()
+    {
+        GraphicsSettings.useScriptableRenderPipelineBatching=true;
+    }
 
     //每一帧都调用
     //按照相机的顺序进行渲染
